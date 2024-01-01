@@ -132,7 +132,7 @@ function AuthWrapper() {
     <>
       {/* ReactHowler component to play the sound */}
       <ReactHowler
-        src={["netflix.mp3"]} // Replace with the actual path to your audio file
+        src={["/netflix.mp3"]} // Replace with the actual path to your audio file
         playing={isAudioPlaying}
         onEnd={() => setAudioPlaying(false)} // Reset the state after the audio finishes playing
       />
