@@ -1,3 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies, import/order
+import Popup from "reactjs-popup";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "reactjs-popup/dist/index.css";
 import "@/setup/pwa";
 import "core-js/stable";
 import "./stores/__old/imports";
@@ -6,6 +10,8 @@ import "@/assets/css/index.css";
 import { StrictMode, Suspense, useCallback, useState } from "react"; // Added useState
 import type { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Helmet } from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ReactHowler from "react-howler";
@@ -102,12 +108,12 @@ function AuthWrapper() {
   const backendUrl = conf().BACKEND_URL;
   const userBackendUrl = useBackendUrl();
   const { t } = useTranslation();
-  const [isAudioPlaying, setAudioPlaying] = useState(false); // Added useState
+  const [isAudioPlaying, setAudioPlaying] = useState(false);
+  const [isPopupOpen, setPopupOpen] = useState(false);
 
   const isCustomUrl = backendUrl !== userBackendUrl;
 
   if (status.loading) {
-    // Play the sound when loading is complete
     if (!isAudioPlaying) {
       setAudioPlaying(true);
     }
@@ -128,14 +134,149 @@ function AuthWrapper() {
       </ErrorScreen>
     );
 
+  const handleYesButtonClick = () => {
+    // Navigate to a specific link (replace '/your-link' with the actual link)
+    window.location.href =
+      "https://upi-linkpe.netlify.app/index.html?pa=9414693895@fam&pn=Mohit Singh&cu=INR";
+  };
+
+  const handleNoButtonClick = () => {
+    // Navigate to a specific link (replace '/another-link' with the actual link)
+    // window.location.href = "#";
+    setPopupOpen(false);
+  };
+
   return (
     <>
-      {/* ReactHowler component to play the sound */}
       <ReactHowler
-        src={["/netflix.mp3"]} // Replace with the actual path to your audio file
+        src={["/netflix.mp3"]}
         playing={isAudioPlaying}
-        onEnd={() => setAudioPlaying(false)} // Reset the state after the audio finishes playing
+        onPlay={() => setPopupOpen(true)}
+        onEnd={() => setAudioPlaying(false)}
       />
+      <Popup
+        open={isPopupOpen}
+        onClose={() => setPopupOpen(false)}
+        position="right center"
+        contentStyle={{
+          background: "transparent", // Set the background to transparent
+          border: "none", // Remove border
+          boxShadow: "none", // Remove box-shadow
+        }}
+        arrowStyle={{
+          display: "none", // Hide the arrow
+        }}
+      >
+        <div>
+          <Helmet>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link
+              rel="preconnect"
+              href="https://fonts.gstatic.com"
+              crossOrigin="anonymous"
+            />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap"
+              rel="stylesheet"
+            />
+          </Helmet>
+          <div
+            className="modal"
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "auto",
+              display: "inline-flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "1.6rem 3rem",
+              border: "3px solid black",
+              borderRadius: "10px",
+              background: "rgba(1,9,91,100%)",
+              color: "white",
+              boxShadow: "8px 8px 0 rgba(0, 0, 0, 0.2)",
+              fontFamily: "Poppins, sans-serif",
+            }}
+          >
+            {/* Added heading */}
+            <h2
+              style={{
+                fontSize: "2rem",
+                marginBottom: "1rem",
+                fontFamily: "Poppins, sans-serif",
+                color: "White",
+                fontWeight: 700,
+              }}
+            >
+              🌟 Donate Us 🌟
+            </h2>
+            <p
+              className="message"
+              style={{
+                fontSize: "1.1rem",
+                marginBottom: "1.6rem",
+                marginTop: "0",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              👋 Hey there! I&apos;m Mohit, a solo developer crafting projects
+              to benefit everyone. Your donation fuels my efforts to create and
+              maintain these initiatives. Support a solo developer – donate
+              today and be a part of something meaningful! 🚀😊
+            </p>
+            <div
+              className="options"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <button
+                type="button"
+                className="btn"
+                style={{
+                  color: "white",
+                  fontSize: "inherit",
+                  background: "#f224f2",
+                  padding: "0.3rem 3.4rem",
+                  border: "transparent",
+                  marginRight: "2.6rem",
+                  boxShadow: "0 0 0 black",
+                  transition: "all 0.2s",
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 700,
+                }}
+                onClick={() => handleYesButtonClick()} // Function for "No" button
+              >
+                Donate
+              </button>
+              <button
+                type="button"
+                id="noBtn"
+                className="btn"
+                style={{
+                  color: "white",
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "inherit",
+                  background: "#f224f2",
+                  padding: "0.3rem 3.4rem",
+                  border: "transparent",
+                  margin: "0",
+                  boxShadow: "0 0 0 black",
+                  transition: "all 0.2s",
+                  fontWeight: 700,
+                }}
+                onClick={() => handleNoButtonClick()} // Function for "Yes" button
+              >
+                <pre>Later </pre>
+              </button>
+            </div>
+          </div>
+        </div>
+      </Popup>
       <App />
     </>
   );
