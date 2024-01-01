@@ -55,7 +55,7 @@ pnpm build
 
 # 🥔 Selfhosting
 
-A simple guide has been written to assist in hosting your own instance of movie-web. Check it out below
+A simple guide has been written to assist in hosting your own instance of Cinemate Hub. Check it out below
 
 |[Selfhosting guide](https://docs.movie-web.app)|
 |---|
