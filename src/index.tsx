@@ -210,7 +210,7 @@ function AuthWrapper() {
                 fontWeight: 700,
               }}
             >
-              🌟 Donate Us 🌟
+              🌟 Support Us 🌟
             </h2>
             <p
               className="message"
