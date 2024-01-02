@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import { Helmet } from "react-helmet";
-// import { HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ReactHowler from "react-howler";
 import { useTranslation } from "react-i18next";
