@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Sticky from "react-sticky-el";
 import { useWindowSize } from "react-use";
@@ -58,6 +58,12 @@ export function HeroPart({ setIsSticky, searchParams }: HeroPartProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   useSlashFocus(inputRef);
 
+  // Set different placeholder for small screens
+  const smallScreenPlaceholder = t("home.search.placeholder_smallScreen") ?? "";
+  const largeScreenPlaceholder = t("home.search.placeholder") ?? "";
+  const placeholder =
+    windowWidth <= 600 ? smallScreenPlaceholder : largeScreenPlaceholder;
+
   return (
     <ThinContainer>
       <div className="mt-44 space-y-16 text-center">
@@ -77,7 +83,7 @@ export function HeroPart({ setIsSticky, searchParams }: HeroPartProps) {
               onChange={setSearch}
               value={search}
               onUnFocus={setSearchUnFocus}
-              placeholder={t("home.search.placeholder") ?? ""}
+              placeholder={placeholder}
             />
           </Sticky>
         </div>
