@@ -246,6 +246,10 @@
 
     <style>
       .sticky-container {
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -259,25 +263,25 @@
         animation: wooble 1.5s ease-in-out infinite;
       }
 
-      /* .rectangular-box {
-      width: 100%;
-      height: 100%;
-      background-color: #3498db;
-      border-radius: 10px;
-      overflow: hidden;
-    } */
-
       .donate-button {
         background-color: rgb(119, 97, 223);
         font-size: 20px;
         font-weight: 500;
         width: 100%;
-        padding: 8px;
-        /* background-color: #e74c3c; */
+        padding-right: 8px;
+        padding-left: 8px;
         border: none;
         color: #fff;
         border-radius: 5px;
         cursor: pointer;
+        margin-bottom: 0;
+      }
+
+      .credit {
+        color: white;
+        font-weight: 300;
+        font-size: x-small;
+        margin-top: 0;
       }
 
       @keyframes wooble {
@@ -302,13 +306,24 @@
     <script type="module" src="/src/index.tsx"></script>
 
     <div class="sticky-container">
-      <a
-        href="https://upi-linkpe.netlify.app/index.html?pa=9414693895@fam&pn=Mohit%20Singh&cu=INR"
-      >
+      <a id="donate-link" href="https://upi-linkpe.netlify.app/index.html?pa=9414693895@fam&pn=Mohit%20Singh&cu=INR">
         <button class="donate-button">Donate Us 🙏🏼</button>
       </a>
+      <a class="credit">Made with 💖 by Mohit</a>
     </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <script>
+      // JavaScript to dynamically change the link based on screen size
+      window.addEventListener("DOMContentLoaded", function () {
+        var donateLink = document.getElementById("donate-link");
+
+        // Check the screen width and update the link accordingly
+        if (window.innerWidth <= 600) {
+          donateLink.href = "upi://pay?pa=9414693895@fam&pn=Mohit%20Singh&cu=INR";
+        }
+      });
+    </script>
   </body>
 </html>
