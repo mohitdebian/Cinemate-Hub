@@ -66,8 +66,8 @@ export default defineConfig(({ mode }) => {
           "safari-pinned-tab.svg",
         ],
         manifest: {
-          name: "Cinemate Hub",
-          short_name: "Cinemate Hub",
+          name: "PeakWatch",
+          short_name: "PeakWatch",
           description: "The place for your favourite movies & shows",
           theme_color: "#120f1d",
           background_color: "#120f1d",
