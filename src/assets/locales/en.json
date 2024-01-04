@@ -3,18 +3,18 @@
     "description": "movie-web is a web application that searches the internet for streams. The team aims for a mostly minimalistic approach to consuming content.",
     "faqTitle": "Common questions",
     "q1": {
-      "body": "Cinemate Hub host any content. When you click on something to watch, the internet is searched for the selected media (On the loading screen and in the 'video sources' tab you can see which source you're using). Media never gets uploaded by movie-web, everything is through this searching mechanism.",
+      "body": "PeakWatch host any content. When you click on something to watch, the internet is searched for the selected media (On the loading screen and in the 'video sources' tab you can see which source you're using). Media never gets uploaded by movie-web, everything is through this searching mechanism.",
       "title": "Where does the content come from?"
     },
     "q2": {
-      "body": "It's not possible to request a show or movie, Cinemate Hub does not manage any content. All content is viewed through sources on the internet.",
+      "body": "It's not possible to request a show or movie, PeakWatch does not manage any content. All content is viewed through sources on the internet.",
       "title": "Where can I request a show or movie?"
     },
     "q3": {
       "body": "Our search results are powered by The Movie Database (TMDB) and display regardless of whether our sources actually have the content.",
       "title": "The search results display the show or movie, why can't I play it?"
     },
-    "title": "Cinemate Hub"
+    "title": "PeakWatch"
   },
   "actions": {
     "copied": "Copied",
@@ -80,7 +80,7 @@
   "footer": {
     "legal": {
       "disclaimer": "Disclaimer",
-      "disclaimerText": "Cinemate Hub host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers. movie-web is not responsible for any media files shown by the video providers."
+      "disclaimerText": "PeakWatch host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers. movie-web is not responsible for any media files shown by the video providers."
     },
     "links": {
       "discord": "Discord",
@@ -90,7 +90,7 @@
     "tagline": "Watch your favourite shows and movies with this open source streaming app."
   },
   "global": {
-    "name": "Cinemate Hub",
+    "name": "PeakWatch",
     "pages": {
       "about": "About",
       "dmca": "DMCA",
@@ -227,11 +227,11 @@
         "unknownLanguage": "Unknown"
       },
       "downloads": {
-        "disclaimer": "Downloads are taken directly from the provider. Cinemate Hub does not have control over how the downloads are provided.",
+        "disclaimer": "Downloads are taken directly from the provider. PeakWatch does not have control over how the downloads are provided.",
         "downloadSubtitle": "Download current subtitle",
         "downloadPlaylist": "Download playlist",
         "downloadVideo": "Download video",
-        "hlsDisclaimer": "Downloads are taken directly from the provider. Cinemate Hub have control over how the downloads are provided. Please note that you are downloading an HLS playlist, this is intended for users familiar with advanced multimedia streaming.",
+        "hlsDisclaimer": "Downloads are taken directly from the provider. PeakWatch have control over how the downloads are provided. Please note that you are downloading an HLS playlist, this is intended for users familiar with advanced multimedia streaming.",
         "onAndroid": {
           "1": "To download on Android, click the download button then, on the new page, <bold>tap and hold</bold> on the video, then select <bold>save</bold>.",
           "shortTitle": "Download / Android",
