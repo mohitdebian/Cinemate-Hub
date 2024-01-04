@@ -101,6 +101,16 @@
     }
   },
   "home": {
+    "bookmarks": {
+      "sectionTitle": "Bookmarks"
+    },
+    "continueWatching": {
+      "sectionTitle": "Continue Watching"
+    },
+    "mediaList": {
+      "stopEditing": "Stop editing"
+    },
+    
     "search": {
       "placeholder": "🎥 \"Ready to watch? What's your pick?\" 🍿✨",
       "placeholder_smallScreen": "Ready to watch on your phone ? 🍿",
