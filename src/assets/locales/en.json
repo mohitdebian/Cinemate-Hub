@@ -110,7 +110,7 @@
     "mediaList": {
       "stopEditing": "Stop editing"
     },
-    
+
     "search": {
       "placeholder": "🎥 \"Ready to watch? What's your pick?\" 🍿✨",
       "placeholder_smallScreen": "Ready to watch on your phone ? 🍿",
@@ -267,6 +267,15 @@
         "text": "Could not load the media's metadata from TMDB. Please check whether TMDB is down or blocked on your internet connection.",
         "title": "Failed to load metadata"
       },
+
+      "twitter": {
+        "card": "summary_large_image",
+        "site": "@mohitdebian",
+        "title": "PeakWatch",
+        "description": "Watch Movies & Web-Series for free with ad free experience",
+        "image": "https://raw.githubusercontent.com/mohitdebian/PeakWatch/main/public/android-chrome-512x512.png"
+      },
+
       "notFound": {
         "badge": "Not found",
         "homeButton": "Back to home",
