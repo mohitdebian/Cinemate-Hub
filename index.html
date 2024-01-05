@@ -197,6 +197,21 @@
       rel="stylesheet"
     />
 
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://peakwatch.vercel.app"
+    />
+    <meta property="twitter:title" content="PeakWatch | Watch Movies & Web-Series" />
+    <meta
+      property="twitter:description"
+      content="PeakWatch | Watch Movies & Web-Series - https://github.com/mohitdebian/PeakWatch"
+    />
+    <meta
+      property="twitter:image"
+      content="https://raw.githubusercontent.com/mohitdebian/PeakWatch/main/public/android-chrome-512x512.png"
+    />
+
     <script src="/config.js"></script>
 
     <!-- Add the audio element here -->
@@ -305,8 +320,10 @@
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
 
-<!--     <div class="sticky-container">
-      <a id="donate-link" href="https://upi-linkpe.netlify.app/index.html?pa=mohitlab@fam&pn=Mohit%20Singh&cu=INR">
+    <!-- Donate Us POPUP -->
+
+    <!-- <div class="sticky-container">
+      <a id="donate-link" href="https://upi-linkpe.netlify.app/index.html?pa=9414693895@fam&pn=Mohit%20Singh&cu=INR">
         <button class="donate-button">Donate Us 🙏🏼</button>
       </a>
       <a class="credit">Made with ❤ by Mohit</a>
@@ -321,7 +338,7 @@
 
         // Check the screen width and update the link accordingly
         if (window.innerWidth <= 600) {
-          donateLink.href = "https://peakwatch-donate.netlify.app";
+          donateLink.href = "upi://pay?pa=mohitlab@fam&pn=Mohit%20Singh&cu=INR";
         }
       });
     </script>
