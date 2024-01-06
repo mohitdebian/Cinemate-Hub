@@ -1,4 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ReactNode } from "react";
 
 import { useBannerSize, useBannerStore } from "@/stores/banner";
@@ -13,7 +12,6 @@ export function Layout(props: { children: ReactNode }) {
       <div className="fixed inset-x-0 z-[1000]">
         <BannerLocation />
       </div>
-      <SpeedInsights /> {/* Include SpeedInsights component here */}
       <div
         style={{
           paddingTop: location === null ? `${bannerSize}px` : "0px",
