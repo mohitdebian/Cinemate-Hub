@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Analytics } from "@vercel/analytics/react";
 import { ReactNode } from "react";
 
 import { useBannerSize, useBannerStore } from "@/stores/banner";
@@ -20,6 +22,7 @@ export function Layout(props: { children: ReactNode }) {
       >
         {props.children}
       </div>
+      <Analytics />
     </div>
   );
 }
