@@ -1,24 +1,24 @@
-import { defineConfig } from 'vitest/config';
-import react from '@vitejs/plugin-react';
-import loadVersion from 'vite-plugin-package-version';
-import { VitePWA } from 'vite-plugin-pwa';
-import checker from 'vite-plugin-checker';
-import path from 'path';
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import loadVersion from "vite-plugin-package-version";
+import { VitePWA } from "vite-plugin-pwa";
+import checker from "vite-plugin-checker";
+import path from "path";
 import million from 'million/compiler';
-import { handlebars } from './plugins/handlebars';
-import { PluginOption, loadEnv, splitVendorChunkPlugin } from 'vite';
-import { visualizer } from 'rollup-plugin-visualizer';
+import { handlebars } from "./plugins/handlebars";
+import { PluginOption, loadEnv, splitVendorChunkPlugin } from "vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
-import tailwind from 'tailwindcss';
-import rtl from 'postcss-rtlcss';
+import tailwind from "tailwindcss";
+import rtl from "postcss-rtlcss";
 
 const captioningPackages = [
-  'dompurify',
-  'htmlparser2',
-  'subsrt-ts',
-  'parse5',
-  'entities',
-  'fuse',
+  "dompurify",
+  "htmlparser2",
+  "subsrt-ts",
+  "parse5",
+  "entities",
+  "fuse"
 ];
 
 export default defineConfig(({ mode }) => {
@@ -28,10 +28,10 @@ export default defineConfig(({ mode }) => {
       million.vite({ auto: true }),
       handlebars({
         vars: {
-          opensearchEnabled: env.VITE_OPENSEARCH_ENABLED === 'true',
+          opensearchEnabled: env.VITE_OPENSEARCH_ENABLED === "true",
           routeDomain:
             env.VITE_APP_DOMAIN +
-            (env.VITE_NORMAL_ROUTER !== 'true' ? '/#' : ''),
+            (env.VITE_NORMAL_ROUTER !== "true" ? "/#" : ""),
           domain: env.VITE_APP_DOMAIN,
           env,
         },
@@ -39,14 +39,14 @@ export default defineConfig(({ mode }) => {
       react({
         babel: {
           presets: [
-            '@babel/preset-typescript',
+            "@babel/preset-typescript",
             [
-              '@babel/preset-env',
+              "@babel/preset-env",
               {
                 modules: false,
-                useBuiltIns: 'entry',
+                useBuiltIns: "entry",
                 corejs: {
-                  version: '3.34',
+                  version: "3.34",
                 },
               },
             ],
@@ -54,49 +54,49 @@ export default defineConfig(({ mode }) => {
         },
       }),
       VitePWA({
-        disable: env.VITE_PWA_ENABLED !== 'true',
-        registerType: 'autoUpdate',
+        disable: env.VITE_PWA_ENABLED !== "true",
+        registerType: "autoUpdate",
         workbox: {
           maximumFileSizeToCacheInBytes: 4000000, // 4mb
-          globIgnores: ['**ping.txt**'],
+          globIgnores: ["**ping.txt**"],
         },
         includeAssets: [
-          'favicon.ico',
-          'apple-touch-icon.png',
-          'safari-pinned-tab.svg',
+          "favicon.ico",
+          "apple-touch-icon.png",
+          "safari-pinned-tab.svg",
         ],
         manifest: {
-          name: 'PeakWatch',
-          short_name: 'PeakWatch',
-          description: 'The place for your favourite movies & shows',
-          theme_color: '#120f1d',
-          background_color: '#120f1d',
-          display: 'standalone',
-          start_url: '/',
+          name: "PeakWatch",
+          short_name: "PeakWatch",
+          description: "The place for your favourite movies & shows",
+          theme_color: "#120f1d",
+          background_color: "#120f1d",
+          display: "standalone",
+          start_url: "/",
           icons: [
             {
-              src: 'android-chrome-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-              purpose: 'any',
+              src: "android-chrome-192x192.png",
+              sizes: "192x192",
+              type: "image/png",
+              purpose: "any",
             },
             {
-              src: 'android-chrome-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any',
+              src: "android-chrome-512x512.png",
+              sizes: "512x512",
+              type: "image/png",
+              purpose: "any",
             },
             {
-              src: 'android-chrome-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-              purpose: 'maskable',
+              src: "android-chrome-192x192.png",
+              sizes: "192x192",
+              type: "image/png",
+              purpose: "maskable",
             },
             {
-              src: 'android-chrome-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'maskable',
+              src: "android-chrome-512x512.png",
+              sizes: "512x512",
+              type: "image/png",
+              purpose: "maskable",
             },
           ],
         },
@@ -104,19 +104,19 @@ export default defineConfig(({ mode }) => {
       loadVersion(),
       checker({
         overlay: {
-          position: 'tr',
+          position: "tr",
         },
         typescript: true, // check typescript build errors in dev server
         eslint: {
           // check lint errors in dev server
-          lintCommand: 'eslint --ext .tsx,.ts src',
+          lintCommand: "eslint --ext .tsx,.ts src",
           dev: {
-            logLevel: ['error'],
+            logLevel: ["error"],
           },
         },
       }),
       splitVendorChunkPlugin(),
-      visualizer() as PluginOption,
+      visualizer() as PluginOption
     ],
 
     build: {
@@ -124,34 +124,31 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks(id: string) {
-            if (id.includes('@sozialhelden+ietf-language-tags')) {
-              return 'ietf-language-tags';
+            if (id.includes("@sozialhelden+ietf-language-tags")) {
+              return "ietf-language-tags";
             }
-            if (id.includes('hls.js')) {
-              return 'hls';
+            if (id.includes("hls.js")) {
+              return "hls";
             }
-            if (id.includes('node-forge') || id.includes('crypto-js')) {
-              return 'auth';
+            if (id.includes("node-forge") || id.includes("crypto-js")) {
+              return "auth";
             }
-            if (id.includes('locales') && !id.includes('en.json')) {
-              return 'locales';
+            if (id.includes("locales") && !id.includes("en.json")) {
+              return "locales";
             }
-            if (id.includes('react-dom')) {
-              return 'react-dom';
+            if (id.includes("react-dom")) {
+              return "react-dom";
             }
-            if (id.includes('Icon.tsx')) {
-              return 'Icons';
+            if (id.includes("Icon.tsx")) {
+              return "Icons";
             }
-            const isCaptioningPackage = captioningPackages.some((packageName) =>
-              id.includes(packageName)
-            );
+            const isCaptioningPackage = captioningPackages.some(packageName => id.includes(packageName));
             if (isCaptioningPackage) {
-              return 'caption-parsing';
+              return "caption-parsing";
             }
-          },
-        },
-      },
-      external: ['@vercel/speed-insights/next'], // Add the external module here
+          }
+        }
+      }
     },
     css: {
       postcss: {
@@ -161,16 +158,16 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
-        '@sozialhelden/ietf-language-tags': path.resolve(
+        "@": path.resolve(__dirname, "./src"),
+        "@sozialhelden/ietf-language-tags": path.resolve(
           __dirname,
-          './node_modules/@sozialhelden/ietf-language-tags/dist/cjs'
+          "./node_modules/@sozialhelden/ietf-language-tags/dist/cjs"
         ),
       },
     },
 
     test: {
-      environment: 'jsdom',
+      environment: "jsdom",
     },
   };
 });
